@@ -18,7 +18,7 @@ class LoginPage extends Page {
     }
 
     public get btnSubmit () {
-        return $('button[type="submit"]');
+        return $('#loginform .is-primary');
     }
 
     /**
@@ -35,7 +35,7 @@ class LoginPage extends Page {
      * overwrite specific options to adapt it to page object
      */
     public open () {
-        return super.open('login');
+        return super.open('/');
     }
 }
 

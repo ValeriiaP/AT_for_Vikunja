@@ -8,8 +8,7 @@ describe('User should be able to ', () => {
         const currentTitleList = newTitleForList();
         const currentTitleTask = newTitleForTask()
         await HomePage.addNewlistOnOverview(currentTitleList);
-        expect(await HomePage.sideListMenu).toHaveText(currentTitleList)
-        // expect 
+        expect(await HomePage.sideListMenu).toHaveText(currentTitleList) 
         await HomePage.addNewTaskOnOverview(currentTitleTask);
         expect(await HomePage.menuTasksList).toHaveText(currentTitleTask)
     })

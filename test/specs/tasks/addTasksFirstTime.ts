@@ -1,16 +1,16 @@
-import HomePage from '../../pageobjects/home.page.js'
-import { newTitleForList, newTitleForTask } from '../../utils/titles.js';
+import OverviewPage from '../../pageobjects/overview.page.js'
+import { createTitleForList, createTitleForTask } from '../../utils/titles.js';
 import { createNewUserWithSignIn } from '../../businessFunctions/login.js'
 
 describe('User should be able to ', () => {
     it('add list and tasks from the overview page for the first time after registration', async () => {
         await createNewUserWithSignIn();
-        const currentTitleList = newTitleForList();
-        const currentTitleTask = newTitleForTask()
-        await HomePage.addNewlistOnOverview(currentTitleList);
-        expect(await HomePage.sideListMenu).toHaveText(currentTitleList) 
-        await HomePage.addNewTaskOnOverview(currentTitleTask);
-        expect(await HomePage.menuTasksList).toHaveText(currentTitleTask)
+        const currentTitleList = createTitleForList();
+        const currentTitleTask = createTitleForTask()
+        await OverviewPage.addNewlist(currentTitleList);
+        expect(await OverviewPage.sideListMenu).toHaveText(currentTitleList) 
+        await OverviewPage.addNewTask(currentTitleTask);
+        expect(await OverviewPage.menuTasksList).toHaveText(currentTitleTask)
     })
 })
 

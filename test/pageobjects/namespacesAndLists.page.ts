@@ -1,6 +1,5 @@
-import loginPage from "./login.page.js";
 import Page from "./page.js";
-import homePage from "./home.page.js";
+import OverviewPage from "./overview.page.js";
 
 class NamespacesList extends Page {
     public get menuNamespaces () {
@@ -17,8 +16,8 @@ class NamespacesList extends Page {
 
     public async addNewListOnNamespaces(titleList){
         await this.buttonAddNewListOnNamespaces.click();
-        await homePage.inputCreateListTitle.addValue(titleList);
-        await homePage.buttonCreateList.click();
+        await OverviewPage.inputCreateListTitle.addValue(titleList);
+        await OverviewPage.buttonCreateList.click();
     }
 }
 

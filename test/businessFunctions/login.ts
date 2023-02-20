@@ -1,5 +1,5 @@
 import loginPage from "../pageobjects/login.page.js";
-import { newUserName } from "../utils/titles.js";
+import { createUserName } from "../utils/titles.js";
 import registerPage from "../pageobjects/register.page.js";
 import { getRandomPassword } from "../utils/random.js";
 
@@ -15,7 +15,7 @@ export async function signInWithExistingUser() {
 
 export async function createNewUserWithSignIn() {
     await browser.url('/register');
-    const currentUser = newUserName();
+    const currentUser = createUserName();
     const emailUser = `${currentUser}@test.com`;
     
     await loginPage.inputUsername.setValue(currentUser);

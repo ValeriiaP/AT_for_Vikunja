@@ -1,13 +1,13 @@
 import { getCurrentDate, randomNum, getRandomStr } from './random.js';
 
-export function newTitleForTask() {
+export function createTitleForTask() {
     return `Task ${randomNum}_${getRandomStr()}`;
 }
 
-export function newTitleForList() {
+export function createTitleForList() {
     return `List ${getCurrentDate}`;
 }
 
-export function newUserName() {
+export function createUserName() {
     return `TestUser_${randomNum}`;
 }

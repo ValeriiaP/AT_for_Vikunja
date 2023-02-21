@@ -1,7 +1,7 @@
 import Page from "./page.js";
 import { createUserName } from '../utils/titles.js';
 import { getRandomPassword } from '../utils/random.js';
-import LoginPage from "./login.page.js";
+import loginPage from "./login.page.js";
 
 class Register extends Page {
 
@@ -16,9 +16,9 @@ class Register extends Page {
         const currentUser = createUserName();
         const emailUser = `${currentUser}@test.com`;
 
-        await LoginPage.usernameInput.setValue(currentUser);
+        await loginPage.usernameInput.setValue(currentUser);
         await this.inputEmail.setValue(emailUser);
-        await LoginPage.passwordInput.setValue(getRandomPassword());
+        await loginPage.passwordInput.setValue(getRandomPassword());
         await this.buttonCreateAccount.click();
 
     }

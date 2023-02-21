@@ -1,4 +1,4 @@
-import OverviewPage from '../../pageobjects/overview.page.js'
+import overviewPage from '../../pageobjects/overview.page.js'
 import { createTitleForList, createTitleForTask } from '../../utils/titles.js';
 import { createNewUserWithSignIn } from '../../businessFunctions/login.js'
 import sideListSection from '../../pageobjects/components/sideListSection.js';
@@ -8,10 +8,10 @@ describe('User should be able to ', () => {
         await createNewUserWithSignIn();
         const currentTitleList = createTitleForList();
         const currentTitleTask = createTitleForTask()
-        await OverviewPage.addNewlist(currentTitleList);
+        await overviewPage.addNewlist(currentTitleList);
         expect(await sideListSection.listItem).toHaveText(currentTitleList) 
-        await OverviewPage.addNewTask(currentTitleTask);
-        expect(await OverviewPage.currentTasksSectionItem).toHaveText(currentTitleTask)
+        await overviewPage.addNewTask(currentTitleTask);
+        expect(await overviewPage.currentTasksSectionItem).toHaveText(currentTitleTask)
     })
 })
 

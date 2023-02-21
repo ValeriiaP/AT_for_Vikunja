@@ -1,8 +1,8 @@
 import Page from "./page.js";
 import addList from "./components/addList.js";
-import SideMenu from "../pageobjects/components/sideMenu.js"
+import sideMenu from "../pageobjects/components/sideMenu.js"
 
-class NamespacesList extends Page {
+class NamespacesPage extends Page {
 
     public get addNewListButton () {
         return $('.namespace .button');
@@ -13,7 +13,7 @@ class NamespacesList extends Page {
     }
 
     public async openNamespaces () {
-        await SideMenu.namespaces.click()
+        await sideMenu.namespaces.click()
     }
 
     public async addNewList(titleList){
@@ -22,4 +22,4 @@ class NamespacesList extends Page {
     }
 }
 
-export default new NamespacesList();
+export default new NamespacesPage();

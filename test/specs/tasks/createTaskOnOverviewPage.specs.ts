@@ -1,8 +1,8 @@
-import OverviewPage from '../../pageobjects/overview.page.js'
-import { createTitleForList, createTitleForTask } from '../../utils/titles.js';
+import overviewPage from '../../pageobjects/overview.page.js'
+import { createTitleForTask } from '../../utils/titles.js';
 import { setOptions } from 'expect-webdriverio'
 import { signInWithExistingUser } from '../../businessFunctions/login.js';
-import Header from '../../pageobjects/components/header.js';
+import header from '../../pageobjects/components/header.js';
 import sideListSection from '../../pageobjects/components/sideListSection.js';
 
 describe('User should be able add tasks from', () => {
@@ -13,7 +13,7 @@ describe('User should be able add tasks from', () => {
 
     afterEach('should logout', async () => {
         //logout for next test
-        await Header.logout();
+        await header.logout();
     });
 
     it('Overview Pages', async () => {
@@ -22,7 +22,7 @@ describe('User should be able add tasks from', () => {
         // await OverviewPage.sideListMenu.click();
         //create new task
         let currentTitleTask = createTitleForTask();
-        await OverviewPage.addNewTask(currentTitleTask);
+        await overviewPage.addNewTask(currentTitleTask);
         //checked new task added to the task list
         const menuTasksList = await $(`.tasktext*=${currentTitleTask}`)
         await menuTasksList.waitForExist();
@@ -32,7 +32,7 @@ describe('User should be able add tasks from', () => {
     it('shouldn`t create a task and show an error', async () => {
         const errorMessage = $('p.is-danger');
         //try to add task
-        await OverviewPage.addNewTask(createTitleForTask());
+        await overviewPage.addNewTask(createTitleForTask());
         //check the error message has showed
         await expect(errorMessage).toBeDisplayedInViewport();
         await expect(errorMessage).toHaveText('Please specify a list or set a default list in the settings.');

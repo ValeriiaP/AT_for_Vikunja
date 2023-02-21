@@ -3,6 +3,7 @@ import { createTitleForList, createTitleForTask } from '../../utils/titles.js';
 import { setOptions } from 'expect-webdriverio'
 import { signInWithExistingUser } from '../../businessFunctions/login.js';
 import Header from '../../pageobjects/components/header.js';
+import sideListSection from '../../pageobjects/components/sideListSection.js';
 
 describe('User should be able add tasks from', () => {
     beforeEach('should sign in to existing user', async () => {
@@ -17,7 +18,8 @@ describe('User should be able add tasks from', () => {
 
     it('Overview Pages', async () => {
         //switch to the list using the side menu
-        await OverviewPage.sideListMenu.click();
+        await sideListSection.listItem.click()
+        // await OverviewPage.sideListMenu.click();
         //create new task
         let currentTitleTask = createTitleForTask();
         await OverviewPage.addNewTask(currentTitleTask);

@@ -1,6 +1,7 @@
 import OverviewPage from '../../pageobjects/overview.page.js'
 import { createTitleForList, createTitleForTask } from '../../utils/titles.js';
 import { createNewUserWithSignIn } from '../../businessFunctions/login.js'
+import sideListSection from '../../pageobjects/components/sideListSection.js';
 
 describe('User should be able to ', () => {
     it('add list and tasks from the overview page for the first time after registration', async () => {
@@ -8,7 +9,7 @@ describe('User should be able to ', () => {
         const currentTitleList = createTitleForList();
         const currentTitleTask = createTitleForTask()
         await OverviewPage.addNewlist(currentTitleList);
-        expect(await OverviewPage.sideListMenu).toHaveText(currentTitleList) 
+        expect(await sideListSection.listItem).toHaveText(currentTitleList) 
         await OverviewPage.addNewTask(currentTitleTask);
         expect(await OverviewPage.currentTasksSectionItem).toHaveText(currentTitleTask)
     })

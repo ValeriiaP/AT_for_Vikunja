@@ -15,12 +15,5 @@ export async function signInWithExistingUser() {
 
 export async function createNewUserWithSignIn() {
     await browser.url('/register');
-    const currentUser = createUserName();
-    const emailUser = `${currentUser}@test.com`;
-    
-    await loginPage.inputUsername.setValue(currentUser);
-    await registerPage.inputEmail.setValue(emailUser);
-    await loginPage.inputPassword.setValue(getRandomPassword());
-    await registerPage.buttonCreateAccount.click()
-
+    await registerPage.createNewUser();
 }

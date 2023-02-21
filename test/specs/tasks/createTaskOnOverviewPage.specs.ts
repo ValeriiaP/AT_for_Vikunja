@@ -2,12 +2,18 @@ import OverviewPage from '../../pageobjects/overview.page.js'
 import { createTitleForList, createTitleForTask } from '../../utils/titles.js';
 import { setOptions } from 'expect-webdriverio'
 import { signInWithExistingUser } from '../../businessFunctions/login.js';
+import Header from '../../pageobjects/components/header.js';
 
 describe('User should be able add tasks from', () => {
-    beforeEach('shoul sign in to existing user', async () => {
+    beforeEach('should sign in to existing user', async () => {
         //sign in
         await signInWithExistingUser();
-    })
+    });
+
+    afterEach('should logout', async () => {
+        //logout for next test
+        await Header.logout();
+    });
 
     it('Overview Pages', async () => {
         //switch to the list using the side menu
@@ -19,8 +25,6 @@ describe('User should be able add tasks from', () => {
         const menuTasksList = await $(`.tasktext*=${currentTitleTask}`)
         await menuTasksList.waitForExist();
         expect(await menuTasksList.getText()).toBe(currentTitleTask);
-        //logout for next test
-        await OverviewPage.logout();
     })
 
     it('shouldn`t create a task and show an error', async () => {
@@ -33,4 +37,8 @@ describe('User should be able add tasks from', () => {
         // expect(await errorMessage.getText()).toBe('Please specify a list or set a default list in the settings.')
 
     })
+
+    // it('can add tasks from different sections and see these tasks in the Current Tasks part', () => {
+
+    // })
 });

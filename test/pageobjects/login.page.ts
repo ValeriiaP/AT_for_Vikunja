@@ -9,15 +9,15 @@ class LoginPage extends Page {
     /**
      * define selectors using getter methods
      */
-    public get inputUsername () {
+    public get usernameInput () {
         return $('#username');
     }
 
-    public get inputPassword () {
+    public get passwordInput () {
         return $('#password');
     }
 
-    public get btnSubmit () {
+    public get submitButton () {
         return $('#loginform .is-primary');
     }
 
@@ -26,9 +26,9 @@ class LoginPage extends Page {
      * e.g. to login using username and password
      */
     public async login (username: string, password: string) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
+        await this.usernameInput.setValue(username);
+        await this.passwordInput.setValue(password);
+        await this.submitButton.click();
     }
 
     /**

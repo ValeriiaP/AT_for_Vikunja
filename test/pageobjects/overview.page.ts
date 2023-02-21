@@ -1,56 +1,24 @@
+import AddList from './components/addList.js';
+import AddTask from './components/addTask.js';
 import Page from './page.js';
 
 class OverviewPage extends Page {
-    /**
-     * define selectors using getter methods
-     */
-    public get buttonNewList() {
+    
+    public get addNewListButton() {
         return $('a.base-button.button.ml-2');
     }
 
-    public get inputCreateListTitle() {
-        return $('.input[name="listTitle"]')
-    }
-
-    public get buttonCreateList() {
-        return $('button=Create');
-    }
-
-    public get inputAddANewTask() {
-        return $('.add-task-textarea.input');
-    }
-
-    public get buttonAddTask() {
-        return $('[aria-label="Add"]');
-    }
-
-    public get sideListMenu () {
-        return $('.list-menu-title');
-    }
-    public get menuTasksList () {
+    public get currentTasksSectionItem () {
         return $('.tasktext');
     }
 
-    public get buttonUsername() {
-        return $('span.username');
-    }
-
-    public async logout() {
-        const buttonLogout = await $('span=Logout');
-        await this.buttonUsername.click();
-        await buttonLogout.click();
-    } 
-
     public async addNewlist(listTitle) {
-        await this.buttonNewList.click();
-        await this.inputCreateListTitle.addValue(listTitle);
-        await this.buttonCreateList.click();
+        await this.addNewListButton.click();
+        await AddList.addNewlist(listTitle)
     }
 
     public async addNewTask(taskTitle){
-        await this.inputAddANewTask.addValue(taskTitle);
-        await this.buttonAddTask.click();
-
+        await AddTask.addNewTask(taskTitle);
     }
 }
 

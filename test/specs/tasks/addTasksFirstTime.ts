@@ -10,7 +10,7 @@ describe('User should be able to ', () => {
         await OverviewPage.addNewlist(currentTitleList);
         expect(await OverviewPage.sideListMenu).toHaveText(currentTitleList) 
         await OverviewPage.addNewTask(currentTitleTask);
-        expect(await OverviewPage.menuTasksList).toHaveText(currentTitleTask)
+        expect(await OverviewPage.currentTasksSectionItem).toHaveText(currentTitleTask)
     })
 })
 

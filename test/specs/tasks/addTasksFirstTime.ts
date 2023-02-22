@@ -9,9 +9,9 @@ describe('User should be able to ', () => {
         const currentTitleList = createTitleForList();
         const currentTitleTask = createTitleForTask()
         await overviewPage.addNewlist(currentTitleList);
-        expect(await sideListSection.listItem).toHaveText(currentTitleList) 
+        await expect(sideListSection.listItem).toHaveText(currentTitleList);
         await overviewPage.addNewTask(currentTitleTask);
-        expect(await overviewPage.currentTasksSectionItem).toHaveText(currentTitleTask)
+        await expect(overviewPage.currentTasksSectionItem).toHaveText(currentTitleTask);
     })
 })
 

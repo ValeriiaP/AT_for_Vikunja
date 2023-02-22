@@ -12,6 +12,10 @@ class OverviewPage extends Page {
         return $('.tasktext');
     }
 
+    public async openOverview () {
+        await super.open('/');
+    }
+
     public async addNewlist(listTitle) {
         await this.addNewListButton.click();
         await addList.addNewlist(listTitle)

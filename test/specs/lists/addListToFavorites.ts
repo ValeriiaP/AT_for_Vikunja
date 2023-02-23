@@ -7,9 +7,14 @@ describe('User should be able to',  () => {
         //sign in
         await signInWithExistingUser();
         //selected the first list from the menu of lists and chose as favorite
+        const locatorFavoriteList = await sideListSection.buttonFavoriteList.parentElement();
+        const foo = $('.menu-list.can-be-hidden.dragging-disabled');
         await sideListSection.buttonFavoriteList.click();
         //check the favorite list in the special section is appeared
-        expect(await favoritesSection.headerSection).toBeDisplayedInViewport();
+
+        await expect(favoritesSection.headerSection).toBeDisplayedInViewport();
+        await expect(favoritesSection.starFavoriteButton).toBeDisplayedInViewport();
+        await expect(locatorFavoriteList).toHaveText(await foo.getText());
 
     })
 

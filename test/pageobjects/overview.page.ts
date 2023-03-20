@@ -12,6 +12,10 @@ class OverviewPage extends Page {
         return $('.tasktext');
     }
 
+    public get highPriorityLabel () {
+        return $('span=High');
+    }
+
     public async openOverview () {
         await super.open('/');
     }
@@ -24,6 +28,7 @@ class OverviewPage extends Page {
     public async addNewTask(taskTitle){
         await addTask.addNewTask(taskTitle);
     }
+
 }
 
 export default new OverviewPage();

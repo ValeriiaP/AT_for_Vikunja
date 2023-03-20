@@ -9,7 +9,9 @@ class NamespacesPage extends Page {
     }
 
     public get listTile() {
-        return $('a.list-button');
+        // return $('.list-button');
+        // return $('.list-card');
+        return $('.list-grid-item');
     }
 
     public async openNamespaces () {

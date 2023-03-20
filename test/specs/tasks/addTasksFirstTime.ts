@@ -1,4 +1,4 @@
-import overviewPage from '../../pageobjects/overview.page.js'
+import overviewPage from '../../pageobjects/overview.page.js';
 import { createTitleForList, createTitleForTask } from '../../utils/titles.js';
 import { createNewUserWithSignIn } from '../../businessFunctions/login.js'
 import sideListSection from '../../pageobjects/components/sideListSection.js';
@@ -24,6 +24,6 @@ describe('User should be able to ', () => {
 // 2.adding tasks:
 // -inside a list +
 // -from the main page+ 2+ lists => error +
-// -added tasks in different lists showed in a "Current tasks" section
+// -added tasks in different lists showed in a "Current tasks" section +
 // 3. editing tasks
 // - play with a different properties like priorities or dates etc and check result.

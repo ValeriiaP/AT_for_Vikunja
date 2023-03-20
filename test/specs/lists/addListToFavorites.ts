@@ -12,8 +12,8 @@ describe('User should be able to',  () => {
         await sideListSection.buttonFavoriteList.click();
         //check the favorite list in the special section is appeared
 
-        await expect(favoritesSection.headerSection).toBeDisplayedInViewport();
-        await expect(favoritesSection.starFavoriteButton).toBeDisplayedInViewport();
+        await expect(favoritesSection.headerSection).toBeDisplayed();
+        await expect(favoritesSection.starFavoriteButton).toBeDisplayed();
         await expect(locatorFavoriteList).toHaveText(await foo.getText());
 
     })

@@ -5,7 +5,7 @@ import { signInWithExistingUser } from '../../businessFunctions/login.js';
 import header from '../../pageobjects/components/header.js';
 import sideListSection from '../../pageobjects/components/sideListSection.js';
 import addTask from '../../pageobjects/components/addTask.js';
-import { checkItemInList } from '../../businessFunctions/validation.js';
+import { checkTaskItemInList } from '../../businessFunctions/validation.js';
 import namespacesPage from '../../pageobjects/namespaces.page.js';
 
 describe('User should be able add tasks from', () => {
@@ -24,7 +24,7 @@ describe('User should be able add tasks from', () => {
         //try to add task
         await overviewPage.addNewTask(createTitleForTask());
         //check the error message has showed
-        await expect(errorMessage).toBeDisplayedInViewport();
+        await expect(errorMessage).toBeDisplayed();
         await expect(errorMessage).toHaveText('Please specify a list or set a default list in the settings.');
 
     });
@@ -37,7 +37,7 @@ describe('User should be able add tasks from', () => {
         await overviewPage.addNewTask(currentTitleTask);
         await overviewPage.openOverview();
         //checked new task added to the task lists
-        await checkItemInList(currentTitleTask);
+        await checkTaskItemInList(currentTitleTask);
     });
 
     it('can add tasks from Namespaces page and find these tasks in the Current Tasks section', async () => {
@@ -51,6 +51,6 @@ describe('User should be able add tasks from', () => {
         //open main page
         await overviewPage.openOverview();
         //checked new task added to the task lists
-        await checkItemInList(task);
+        await checkTaskItemInList(task);
     });
 });

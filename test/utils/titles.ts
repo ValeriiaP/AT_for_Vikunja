@@ -9,5 +9,7 @@ export function createTitleForList() {
 }
 
 export function createUserName() {
-    return `TestUser_${randomNum}`;
+    return `TestUser_${randomNum}${getRandomStr()}`;
 }
+
+export const lableTitle = `Lable_${randomNum}`;

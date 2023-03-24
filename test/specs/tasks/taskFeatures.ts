@@ -15,11 +15,14 @@ describe('User should be able to ', () => {
         await overviewPage.addNewlist(listTitle);
         await overviewPage.addNewTask(taskTitle);
 
+    });
+
+    beforeEach ('should open task', async function () {
+        await overviewPage.currentTasksSectionItem.waitForClickable({timeout: 5000});
+        await overviewPage.currentTasksSectionItem.doubleClick();
     })
 
     it('set a high priority level for the task ', async () => {
-        await overviewPage.currentTasksSectionItem.doubleClick();
-
         await taskPage.clickSetPriority();
         await taskPage.priorityDropdown.selectByAttribute('value', '3');
 
@@ -29,14 +32,15 @@ describe('User should be able to ', () => {
     });
 
     it('add label for task', async () => {
-        await overviewPage.currentTasksSectionItem.waitForClickable({timeout: 5000});
-        await overviewPage.currentTasksSectionItem.doubleClick();
-
         await taskPage.clickAddLabels();
         const lable = lableTitle;
         await (await taskPage.lableTitleInput).setValue(lable);
         await browser.keys('Enter');
         await overviewPage.openOverview();
         await expect(overviewPage.lable).toHaveText(lable);
-    })
+    });
+
+    // it('set start date for task', async () => {
+
+    // });
 })

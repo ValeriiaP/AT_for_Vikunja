@@ -26,6 +26,47 @@ class TaskPage extends Page {
     public get lableTitleInput () {
         return $('input[placeholder="Type to add a new label…"]');
     }
+
+    private get setStartDateButton () {
+        return $('button=Set Start Date');
+    }
+
+    public async clickSetStartDateDatepicker() {
+        await this.setStartDateButton.click();
+    }
+
+    private get setStartDateInput() {
+        return $('.datepicker').$('button*=start date');
+    }
+
+    public async clickSetDateInput() {
+        await this.setStartDateInput.click();
+    }
+
+    private get nextMondayDatepickerButton () {
+        return $('span*=Next Monday');
+    }
+
+    public async selectNextMondatDatepicker() {
+        await this.nextMondayDatepickerButton.click();
+    }
+
+    public get confirmDatepickerButton () {
+        return $('.datepicker__close-button');
+    }
+
+    public async clickConfirmDate() {
+        await this.confirmDatepickerButton.click();
+    }
+
+    public get startDateTitlePlate() {
+        return $('.detail-title=Start Date')
+    }
+
+    public get enteredDateStartDate () {
+        return $('.input .flatpickr-input')
+    }
+
 }
 
 export default new TaskPage();

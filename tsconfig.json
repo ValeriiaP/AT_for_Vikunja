@@ -6,7 +6,7 @@
             "node",
             "@wdio/globals/types",
             "expect-webdriverio",
-            "@wdio/mocha-framework"
+            "@wdio/mocha-framework",
         ],
         "target": "es2022"
     }

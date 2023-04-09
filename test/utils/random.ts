@@ -3,7 +3,7 @@ const str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@#$%^&*';
 export const randomNum = Math.floor(Math.random() * 15);
 
 export function getRandomPassword() {
-    return Math.floor(Math.random() * 9000 + 1000);
+    return `${Math.floor(Math.random() * 9000 + 1000)}`;
 
 }
 

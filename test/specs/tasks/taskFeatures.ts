@@ -1,4 +1,4 @@
-import { createNewUserWithSignIn, signInWithExistingUser } from '../../businessFunctions/login.js';
+import { createUIUserWithSignIn, signInWithExistingUser } from '../../businessFunctions/login.js';
 import overviewPage from '../../pageobjects/overview.page.js';
 import taskPage from '../../pageobjects/task.page.js';
 import { checkSuccessToastMessage } from '../../businessFunctions/validation.js'
@@ -10,7 +10,7 @@ import { getNextMonday } from '../../utils/additionalMethods.js';
 describe('User should be able to ', () => {
 
     before('should sign in to new user, create new list and task', async function () {
-        await createNewUserWithSignIn();
+        await createUIUserWithSignIn();
         const listTitle = createTitleForList();
         const taskTitle = createTitleForTask();
         await overviewPage.addNewlist(listTitle);
@@ -57,6 +57,7 @@ describe('User should be able to ', () => {
     // });
 
     it('set color for task', async () => {
-        
+
+
     })
 })

@@ -8,7 +8,7 @@ export function createTitleForList() {
     return `List ${getCurrentDate}`;
 }
 
-export function createUserName() {
+export function createUsername() {
     return `TestUser_${randomNum}${getRandomStr()}`;
 }
 

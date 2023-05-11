@@ -1,4 +1,4 @@
-import { createUIUserWithSignIn, signInWithExistingUser } from '../../businessFunctions/login.js';
+import { createUserWithSignInUi, signInWithCredsUi } from '../../businessFunctions/loginUI.js';
 import overviewPage from '../../pageobjects/overview.page.js';
 import taskPage from '../../pageobjects/task.page.js';
 import { checkSuccessToastMessage } from '../../businessFunctions/validation.js'
@@ -6,11 +6,14 @@ import toastMessage from '../../pageobjects/components/toast.message.js';
 import { createTitleForList, createTitleForTask, lableTitle } from '../../utils/titles.js';
 import sideMenu from '../../pageobjects/components/sideMenu.js';
 import { getNextMonday } from '../../utils/additionalMethods.js';
+import { createUserWithSignInApi } from '../../businessFunctions/loginAPI.js';
 
 describe('User should be able to ', () => {
 
     before('should sign in to new user, create new list and task', async function () {
-        await createUIUserWithSignIn();
+        // await createUserWithSignInUi();
+        await createUserWithSignInApi();
+        
         const listTitle = createTitleForList();
         const taskTitle = createTitleForTask();
         await overviewPage.addNewlist(listTitle);

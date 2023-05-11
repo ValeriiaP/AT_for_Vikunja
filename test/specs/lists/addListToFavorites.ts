@@ -1,11 +1,14 @@
-import {signInWithExistingUser} from '../../businessFunctions/login.js';
+import {signInWithCredsApi} from '../../businessFunctions/loginAPI.js';
+import { signInWithCredsUi } from '../../businessFunctions/loginUI.js';
 import sideListSection from '../../pageobjects/components/sideListSection.js';
 import favoritesSection from '../../pageobjects/components/favoritesSection.js';
 
 describe('User should be able to',  () => {
     it('add the list to favorites using star button on overview page', async () => {
         //sign in
-        await signInWithExistingUser();
+        // await signInWithCredsUi();
+        await signInWithCredsApi({username: 'test_4', password: '123'});
+
         //selected the first list from the menu of lists and chose as favorite
         const locatorFavoriteList = await sideListSection.buttonFavoriteList.parentElement();
         const foo = $('.menu-list.can-be-hidden.dragging-disabled');

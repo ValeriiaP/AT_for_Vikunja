@@ -1,12 +1,13 @@
 import overviewPage from '../../pageobjects/overview.page.js';
 import { createTitleForList, createTitleForTask } from '../../utils/titles.js';
-import { apiCreateUser, apiLogin, createUIUserWithSignIn } from '../../businessFunctions/login.js'
+import { apiCreateUser, createUserWithSignInApi, signInWithCredsApi } from '../../businessFunctions/loginAPI.js'
+import { createUserWithSignInUi } from '../../businessFunctions/loginUI.js';
 import sideListSection from '../../pageobjects/components/sideListSection.js';
 
 describe('User should be able to ', () => {
     it('add list and tasks from the overview page for the first time after registration', async () => {
-        const user = await apiCreateUser();
-        await apiLogin(user) 
+        await createUserWithSignInApi();
+
         const currentTitleList = createTitleForList();
         const currentTitleTask = createTitleForTask()
         await overviewPage.addNewlist(currentTitleList);

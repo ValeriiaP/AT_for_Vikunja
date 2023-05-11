@@ -1,5 +1,5 @@
 import Page from "./page.js";
-import { createUserName } from '../utils/titles.js';
+import { createUsername } from '../utils/titles.js';
 import { getRandomPassword } from '../utils/random.js';
 import loginPage from "./login.page.js";
 
@@ -12,8 +12,8 @@ class Register extends Page {
         return $('#email')
     }
 
-    public async createNewUser() {
-        const currentUser = createUserName();
+    public async createNewUserUi() {
+        const currentUser = createUsername();
         const emailUser = `${currentUser}@test.com`;
 
         await loginPage.usernameInput.setValue(currentUser);

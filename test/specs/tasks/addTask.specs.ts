@@ -1,7 +1,8 @@
 import overviewPage from '../../pageobjects/overview.page.js'
 import { createTitleForTask } from '../../utils/titles.js';
 import { setOptions } from 'expect-webdriverio'
-import { signInWithExistingUser } from '../../businessFunctions/login.js';
+import { signInWithCredsApi } from '../../businessFunctions/loginAPI.js';
+import { signInWithCredsUi } from '../../businessFunctions/loginUI.js';
 import header from '../../pageobjects/components/header.js';
 import sideListSection from '../../pageobjects/components/sideListSection.js';
 import addTask from '../../pageobjects/components/addTask.js';
@@ -11,7 +12,8 @@ import namespacesPage from '../../pageobjects/namespaces.page.js';
 describe('User should be able add tasks from', () => {
     beforeEach('should sign in to existing user', async () => {
         //sign in
-        await signInWithExistingUser();
+        // await signInWithCredsUi();
+        await signInWithCredsApi({username: 'test_4', password: '123'})
     });
 
     afterEach('should logout', async () => {

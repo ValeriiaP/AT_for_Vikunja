@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-interface LoginUserData {
+export interface LoginUserData {
     username: string,
     password: string,
 }
 
-interface RegisterUserData extends LoginUserData {
+export interface RegisterUserData extends LoginUserData {
     email: string
 }
 

@@ -16,12 +16,12 @@ jobs:
         - name: Runs docker-compose file
           uses: isbang/compose-action@v1.5.0
           with:
-            compose-file: "./docker-compose.yml"
+            compose-file: "./app/docker-compose.yml"
             down-flags: "--volumes"
 
         - name: Test
           run: npm run wdio
-        - uses: actions/upload-artifact@v1
+        - uses: actions/upload-artifact@v3
           if: failure()
           with:
             name: logs

@@ -1,0 +1,28 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+        - uses: actions/setup-node@v1
+          with:
+            node-version: 18
+
+        - name: Install
+          run: npm install
+
+        - name: Runs docker-compose file
+          uses: isbang/compose-action@v1.5.0
+          with:
+            compose-file: "./app/docker-compose.yml"
+            down-flags: "--volumes"
+
+        - name: Test
+          run: npm run wdio
+        - uses: actions/upload-artifact@v3
+          if: failure()
+          with:
+            name: logs
+            path: logs

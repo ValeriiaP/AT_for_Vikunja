@@ -13,7 +13,7 @@ services:
       - ./db:/var/lib/mysql
     restart: unless-stopped
   api:
-    image: vikunja/api
+    image: vikunja/api:0.20.4
     environment:
       VIKUNJA_DATABASE_HOST: db
       VIKUNJA_DATABASE_PASSWORD: secret
@@ -26,7 +26,7 @@ services:
       - db
     restart: unless-stopped
   frontend:
-    image: vikunja/frontend
+    image: vikunja/frontend:0.20.5
     restart: unless-stopped
   proxy:
     image: nginx

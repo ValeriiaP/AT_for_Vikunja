@@ -23,7 +23,7 @@ class OverviewPage extends Page {
 
 
     public async openOverview () {
-        await (await sideMenu.overview).click();
+        await sideMenu.overview.click();
     }
 
     public async addNewlist(listTitle) {

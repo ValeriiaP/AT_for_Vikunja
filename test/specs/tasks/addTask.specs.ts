@@ -1,7 +1,7 @@
 import overviewPage from '../../pageobjects/overview.page.js'
-import { createTitleForTask } from '../../utils/titles.js';
+import { createTitleForList, createTitleForTask } from '../../utils/titles.js';
 import { setOptions } from 'expect-webdriverio'
-import { signInWithCredsApi } from '../../businessFunctions/loginAPI.js';
+import { createUserWithSignInApi, signInWithCredsApi } from '../../businessFunctions/loginAPI.js';
 import { signInWithCredsUi } from '../../businessFunctions/loginUI.js';
 import header from '../../pageobjects/components/header.js';
 import sideListSection from '../../pageobjects/components/sideListSection.js';
@@ -13,7 +13,7 @@ describe('User should be able add tasks from', () => {
     beforeEach('should sign in to existing user', async () => {
         //sign in
         // await signInWithCredsUi();
-        await signInWithCredsApi({username: 'test_4', password: '123'})
+        await createUserWithSignInApi();
     });
 
     afterEach('should logout', async () => {
@@ -32,6 +32,8 @@ describe('User should be able add tasks from', () => {
     });
 
     it('Overview Pages and find these tasks in the Current Tasks part', async () => {
+        // create new list
+        await overviewPage.addNewlist(createTitleForList())
         //switch to the list using the side menu
         await sideListSection.listItem.click();
         //create new task
@@ -41,12 +43,14 @@ describe('User should be able add tasks from', () => {
         //checked new task added to the task lists
         await checkTaskItemInList(currentTitleTask);
     });
-
+    
     it('can add tasks from Namespaces page and find these tasks in the Current Tasks section', async () => {
+        //create new list
+        await overviewPage.addNewlist(createTitleForList())
         //open Namespaces page
         await namespacesPage.openNamespaces();
         //select a list from the list of lists
-        (await namespacesPage.listTile).click();
+        await namespacesPage.listTile.click();
         const task = createTitleForTask();
         //add new task
         await addTask.addNewTask(task);

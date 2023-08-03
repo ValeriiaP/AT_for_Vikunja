@@ -16,7 +16,7 @@ class TaskPage extends Page {
     }
 
     private get addLabelsButton() {
-        return $('button=Add Labels');
+        return $('button=Add Labels')
     }
 
     public async clickAddLabels() {

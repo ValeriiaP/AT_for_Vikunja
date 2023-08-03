@@ -26,41 +26,37 @@ describe('User should be able to ', () => {
         await overviewPage.currentTasksSectionItem.doubleClick();
     })
 
-    // it('set a high priority level for the task ', async () => {
-    //     await taskPage.clickSetPriority();
-    //     await taskPage.priorityDropdown.selectByAttribute('value', '3');
+    it('set a high priority level for the task ', async () => {
+        await taskPage.clickSetPriority();
+        await taskPage.priorityDropdown.selectByAttribute('value', '3');
 
-    //     await checkSuccessToastMessage(toastMessage.messageSaveTask);
-    //     await overviewPage.openOverview();
-    //     await expect(overviewPage.highPriorityLabel).toBeDisplayed();
-    // });
+        await checkSuccessToastMessage(toastMessage.messageSaveTask);
+        await overviewPage.openOverview();
+        await expect(overviewPage.highPriorityLabel).toBeDisplayed();
+    });
 
-    // it('add label for task', async () => {
-    //     await taskPage.clickAddLabels();
-    //     const lable = lableTitle;
-    //     await (await taskPage.lableTitleInput).setValue(lable);
-    //     await browser.keys('Enter');
-    //     await overviewPage.openOverview();
-    //     await expect(overviewPage.lable).toHaveText(lable);
-    // });
+    it('add label for task', async () => {
+        await taskPage.clickAddLabels();
+        const lable = lableTitle;
+        await taskPage.lableTitleInput.setValue(lable);
+        await browser.keys('Enter');
+        await overviewPage.openOverview();
+        await expect(overviewPage.lable).toHaveText(lable);
+    });
 
-    // it('set start date for task', async () => {
-    //     await taskPage.clickSetStartDateDatepicker();
-    //     await taskPage.clickSetDateInput();
-    //     await taskPage.selectNextMondatDatepicker();
-    //     await taskPage.clickConfirmDate();
+    it('set start date for task', async () => {
+        await taskPage.clickSetStartDateDatepicker();
+        await taskPage.clickSetDateInput();
+        await taskPage.selectNextMondatDatepicker();
+        await taskPage.clickConfirmDate();
 
-    //     const enteredStartDate = (await taskPage.startDateTitlePlate).nextElement();
-    //     const nextMonday = getNextMonday();
+        const enteredStartDate = (await taskPage.startDateTitlePlate).nextElement();
+        const nextMonday = getNextMonday();
 
-    //     await checkSuccessToastMessage(toastMessage.messageSaveTask);
-    //     await expect(taskPage.startDateTitlePlate).toBeDisplayed();
-    //     await expect(enteredStartDate).toHaveTextContaining(nextMonday);
+        await checkSuccessToastMessage(toastMessage.messageSaveTask);
+        await expect(taskPage.startDateTitlePlate).toBeDisplayed();
+        await expect(enteredStartDate).toHaveTextContaining(nextMonday);
 
-    // });
+    });
 
-    it('set color for task', async () => {
-
-
-    })
 })

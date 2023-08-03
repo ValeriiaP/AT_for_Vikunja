@@ -1,6 +1,6 @@
 class ToastMessages {
     get successTitle () {
-        return $('div.notification-title');
+        return $('.notification-title');
     }
 
     public get successContent() {

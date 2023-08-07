@@ -21,7 +21,6 @@ export async function signInWithCredsApi({username, password}) {
     const response = req.data;
     const token = response.token;
 
-    await browser.url('/');
     await browser.execute(function (token) {
         localStorage.setItem("token", token)
     }, token)

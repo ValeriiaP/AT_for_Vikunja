@@ -1,4 +1,4 @@
-const str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@#$%^&*';
+const str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
 export const randomNum = Math.floor(Math.random() * 15);
 
@@ -7,9 +7,9 @@ export function getRandomPassword() {
 
 }
 
-export function getRandomStr() {
+export function getRandomStr(number=10) {
     let result = '';
-    for (let i = 0; i < randomNum; i++) {
+    for (let i = 0; i < number; i++) {
         result += str.charAt(Math.floor(Math.random() * str.length));
     }
 

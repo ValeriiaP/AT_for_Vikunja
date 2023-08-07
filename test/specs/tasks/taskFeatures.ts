@@ -13,7 +13,7 @@ describe('User should be able to ', () => {
     before('should sign in to new user, create new list and task', async function () {
         // await createUserWithSignInUi();
         await createUserWithSignInApi();
-        
+
         const listTitle = createTitleForList();
         const taskTitle = createTitleForTask();
         await overviewPage.addNewlist(listTitle);
@@ -21,12 +21,13 @@ describe('User should be able to ', () => {
 
     });
 
-    beforeEach ('should open task', async function () {
-        await overviewPage.currentTasksSectionItem.waitForClickable({timeout: 6000});
-        await overviewPage.currentTasksSectionItem.doubleClick();
+    beforeEach('should open task', async function () {
+        await browser.url("/")
+        await overviewPage.currentTasksSectionItem.waitForClickable({ timeout: 6000 });
+        await overviewPage.currentTasksSectionItem.click();
     })
 
-    it('set a high priority level for the task ', async () => {
+    it('set a high priority level for the task', async () => {
         await taskPage.clickSetPriority();
         await taskPage.priorityDropdown.selectByAttribute('value', '3');
 

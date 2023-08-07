@@ -30,6 +30,32 @@
       "console": "integratedTerminal"
     },
     {
+      "name": "grep🌍",
+      "type": "node",
+      "request": "launch",
+      "args": [
+        "wdio.conf.ts",
+        "--mochaOpts.grep",
+        "@debug"
+      ],
+      "cwd": "${workspaceFolder}",
+      "autoAttachChildProcesses": true,
+      "program": "${workspaceRoot}/node_modules/@wdio/cli/bin/wdio.js",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "All 🌍",
+      "type": "node",
+      "request": "launch",
+      "args": [
+        "wdio.conf.ts",
+      ],
+      "cwd": "${workspaceFolder}",
+      "autoAttachChildProcesses": true,
+      "program": "${workspaceRoot}/node_modules/@wdio/cli/bin/wdio.js",
+      "console": "integratedTerminal"
+    },
+    {
       "name": "all - chrome",
       "type": "node",
       "request": "launch",

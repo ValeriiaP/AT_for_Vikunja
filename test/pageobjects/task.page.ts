@@ -4,11 +4,11 @@ import Page from "./page.js";
 class TaskPage extends Page {
 
     private get setPriorityButton() {
-        return $('.fa-exclamation');
+        return $('button=Set Priority');
     }
 
     public async clickSetPriority() {
-        await this.setPriorityButton.click();
+            await this.setPriorityButton.click();
     }
 
     public get priorityDropdown() {

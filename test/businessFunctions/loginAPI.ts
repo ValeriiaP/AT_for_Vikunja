@@ -1,4 +1,4 @@
-import { RegisterUserData, postLogin, postRegister } from "../integrations/apiVikunja.js";
+import { RegisterUserData,  postLoginRecursion,  postRegisterRecursion } from "../integrations/apiVikunja.js";
 import loginPage from "../pageobjects/login.page.js";
 import registerPage from "../pageobjects/register.page.js";
 import { getRandomPassword, getRandomStr, randomNum } from "../utils/random.js";
@@ -12,12 +12,12 @@ export async function apiCreateUser() {
         password: getRandomPassword()
     }
 
-    await postRegister(userData);
+    await postRegisterRecursion(userData);
     return userData;
 }
 
 export async function signInWithCredsApi({username, password}) {
-    const req = await postLogin({username, password});
+    const req = await postLoginRecursion({username, password});
     const response = req.data;
     const token = response.token;
 

@@ -77,7 +77,7 @@ export const config: Options.Testrunner = {
         browserName: 'chrome',
         'goog:chromeOptions': {
             args: [
-                // '--headless=new',
+                '--headless=new',
                 '--disable-gpu',
                 '--no-sandbox',
                 '--disable-dev-shm-usage', // solves chrome short memory issue on CI pipelines

@@ -10,15 +10,13 @@ import { checkTaskItemInList } from '../../businessFunctions/validation.js';
 import namespacesPage from '../../pageobjects/namespaces.page.js';
 
 describe('User should be able add tasks from', () => {
-    beforeEach('should sign in to existing user', async () => {
-        //sign in
-        // await signInWithCredsUi();
+
+    before(async () => {
         await createUserWithSignInApi();
     });
 
-    afterEach('should logout', async () => {
-        //logout for next test
-        await header.logout();
+    beforeEach('', async () => {
+        await browser.url('/');
     });
 
     it('shouldn`t create a task and show an error', async () => {
@@ -31,7 +29,7 @@ describe('User should be able add tasks from', () => {
 
     });
 
-    it('Overview Pages and find these tasks in the Current Tasks part', async () => {
+    it('create a task on Overview Pages and find these tasks in the Current Tasks part', async () => {
         // create new list
         await overviewPage.addNewlist(createTitleForList())
         //switch to the list using the side menu
@@ -43,10 +41,8 @@ describe('User should be able add tasks from', () => {
         //checked new task added to the task lists
         await checkTaskItemInList(currentTitleTask);
     });
-    
+
     it('can add tasks from Namespaces page and find these tasks in the Current Tasks section', async () => {
-        //create new list
-        await overviewPage.addNewlist(createTitleForList())
         //open Namespaces page
         await namespacesPage.openNamespaces();
         //select a list from the list of lists
